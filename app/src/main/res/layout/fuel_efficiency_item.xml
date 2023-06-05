@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/adapter_background">
+
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp">
+
+            <TextView
+                android:id="@+id/Initial_Fuel"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/initial_fuel"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/initial_fuel_result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Initial_Fuel"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/initial_Reading"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/initial_reading"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Initial_Fuel" />
+
+            <TextView
+                android:id="@+id/inital_reading_result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/initial_Reading"
+                app:layout_constraintTop_toBottomOf="@+id/initial_fuel_result" />
+
+            <TextView
+                android:id="@+id/fuel_Price_Start"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/furl_price_at_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/initial_Reading" />
+
+            <TextView
+                android:id="@+id/fuel_price_at_start_result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/fuel_Price_Start"
+                app:layout_constraintTop_toBottomOf="@id/inital_reading_result" />
+
+            <TextView
+                android:id="@+id/usedFuel"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/fuel_used"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fuel_Price_Start" />
+
+            <TextView
+                android:id="@+id/used_fuel_result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/usedFuel"
+                app:layout_constraintTop_toBottomOf="@+id/fuel_price_at_start_result" />
+
+            <TextView
+                android:id="@+id/finalReading"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/final_reading"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/usedFuel" />
+
+            <TextView
+                android:id="@+id/finalReading_Result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/finalReading"
+                app:layout_constraintTop_toBottomOf="@+id/used_fuel_result" />
+
+            <TextView
+                android:id="@+id/finalPriceAtEnd"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/fuel_price_at_refill"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/finalReading" />
+
+            <TextView
+                android:id="@+id/finalPriceAtEnd_Result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/finalPriceAtEnd"
+                app:layout_constraintTop_toBottomOf="@+id/finalReading_Result" />
+
+            <TextView
+                android:id="@+id/fuelDifference"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/fuel_difference"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/finalPriceAtEnd" />
+
+            <TextView
+                android:id="@+id/fuelDifference_Result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fuelDifference"
+                app:layout_constraintTop_toBottomOf="@+id/finalPriceAtEnd_Result" />
+
+            <TextView
+                android:id="@+id/calculateFuelEfficiency"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/performance_of_car"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fuelDifference" />
+
+            <TextView
+                android:id="@+id/calculateFuelEfficiency_Result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/calculateFuelEfficiency"
+                app:layout_constraintTop_toBottomOf="@+id/fuelDifference_Result" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

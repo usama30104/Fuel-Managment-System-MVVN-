@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">FuelManagementSystemWithFragments</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fuel_price">Fuel Price</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="fuel_expense">Fuel Expense</string>
+    <string name="fuel_efficiency">Fuel Efficiency</string>
+    <string name="history">History</string>
+    <string name="detail_form">Detail Form</string>
+    <string name="fuelprice">fuelPrice</string>
+    <string name="fuel_expense_history_label">Fuel Expense History</string>
+    <string name="fuel_price_at_start">Fuel Price At Start</string>
+    <string name="Initial_meter_reading">Initial Meter Reading</string>
+    <string name="calculate">Calculate</string>
+    <string name="total_liters_of_fuel">Total Liters of Fuel</string>
+    <string name="average_per_km">Average Per Km</string>
+    <string name="distance_travel">Distance Travel</string>
+    <string name="total_cost_of_fuel">Total cost Of Fuel</string>
+    <string name="initial_fuel">Initial Fuel</string>
+    <string name="initial_reading">Initial Reading</string>
+    <string name="furl_price_at_start">Furl Price At Start</string>
+    <string name="final_reading">Final Reading</string>
+    <string name="fuel_price_at_refill">Fuel Price At Refill</string>
+    <string name="fuel_difference">Fuel Difference</string>
+    <string name="performance_of_car">Performance Of Car</string>
+    <string name="fuel_used">Fuel Used</string>
+    <string name="vehicleaverageperkm">vehicleAveragePerKm</string>
+    <string name="total_distance_travel">Total Distance Travel</string>
+    <string name="calculate_Btn">Calculate</string>
+    <string name="save">save</string>
+    <string name="calculate_Button">Calculate</string>
+    <string name="empty">Empty</string>
+    <string name="total_cost_of_fuel_value">Total Cost of Fuel: %f</string>
+</resources>

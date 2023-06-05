@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/adapter_background">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp">
+
+            <TextView
+                android:id="@+id/fuelPrice"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/fuel_price"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/fuel_Price_Result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fuelPrice"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/average_per_Km"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/average_per_km"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fuelPrice" />
+
+            <TextView
+                android:id="@+id/average_per_Km_Result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/average_per_Km"
+                app:layout_constraintTop_toBottomOf="@+id/fuel_Price_Result" />
+
+            <TextView
+                android:id="@+id/totalDistanceTravel"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/distance_travel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/average_per_Km" />
+
+            <TextView
+                android:id="@+id/totalDistanceTravel_Result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/totalDistanceTravel"
+                app:layout_constraintTop_toBottomOf="@id/average_per_Km_Result" />
+
+            <TextView
+                android:id="@+id/total_Cost_Of_Fuel"
+                style="@style/FuelCalResultScreen"
+                android:text="@string/total_cost_of_fuel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalDistanceTravel" />
+
+            <TextView
+                android:id="@+id/total_Cost_Of_Fuel_Result"
+                style="@style/FuelCalResultScreen"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/total_Cost_Of_Fuel"
+                app:layout_constraintTop_toBottomOf="@+id/totalDistanceTravel_Result" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
