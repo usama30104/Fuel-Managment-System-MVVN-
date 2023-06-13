@@ -2,6 +2,7 @@ package com.example.fuelmanagementsystemwithfragments.ui.history.fuelEfficiencyH
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelmanagementsystemwithfragments.data.model.FuelEfficiencyCalculation
@@ -9,7 +10,7 @@ import com.example.fuelmanagementsystemwithfragments.databinding.FuelEfficiencyI
 
 class FueLEfficiencyHistoryAdapter :
     ListAdapter<FuelEfficiencyCalculation, FueLEfficiencyHistoryAdapter.ViewHolder>(
-        DiffUtil()
+        FuelEfficiencyDiffUtil()
     ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,8 +29,7 @@ class FueLEfficiencyHistoryAdapter :
         holder.bind(fuelEfficiencyCalculation)
     }
 
-    class DiffUtil :
-        androidx.recyclerview.widget.DiffUtil.ItemCallback<FuelEfficiencyCalculation>() {
+    class FuelEfficiencyDiffUtil : DiffUtil.ItemCallback<FuelEfficiencyCalculation>() {
         override fun areItemsTheSame(
             oldItem: FuelEfficiencyCalculation,
             newItem: FuelEfficiencyCalculation
@@ -53,8 +53,7 @@ class FueLEfficiencyHistoryAdapter :
             binding.apply {
                 initialFuelResult.text = fuelEfficiencyCalculation.initialFuel.toString()
                 initalReadingResult.text = fuelEfficiencyCalculation.initialReading.toString()
-                fuelPriceAtStartResult.text =
-                    fuelEfficiencyCalculation.petrolPriceAtRefil.toString()
+                fuelPriceAtStartResult.text = fuelEfficiencyCalculation.petrolPriceAtRefil.toString()
                 usedFuelResult.text = fuelEfficiencyCalculation.fuelUsed.toString()
                 finalReadingResult.text = fuelEfficiencyCalculation.finalReading.toString()
                 finalPriceAtEndResult.text = fuelEfficiencyCalculation.fuelPriceAtEnd.toString()

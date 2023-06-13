@@ -3,39 +3,36 @@ package com.example.fuelmanagementsystemwithfragments.ui.fuelefficiency
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.fuelmanagementsystemwithfragments.R
 import com.example.fuelmanagementsystemwithfragments.databinding.FragmentFuelEfficiencyBinding
+import com.example.fuelmanagementsystemwithfragments.ui.baseclasses.BaseFragment
 import com.example.fuelmanagementsystemwithfragments.utils.extension.launchWhenStarted
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class FuelEfficiencyFragment : Fragment(R.layout.fragment_fuel_efficiency) {
+class FuelEfficiencyFragment : BaseFragment<FragmentFuelEfficiencyBinding>() {
+    override fun getFragmentView(): Int = R.layout.fragment_fuel_efficiency
 
-    private var _binding: FragmentFuelEfficiencyBinding? = null
-    private val binding get() = _binding!!
 
     private val fuelEfficiencyViewModel by viewModels<FuelEfficiencyViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentFuelEfficiencyBinding.bind(view)
+
 
         launchWhenStarted {
             fuelEfficiencyViewModel.fuelEfficiencyEvent.collect { event ->
                 when (event) {
-                   is FuelEfficiencyScreenEvent.ShowEmptyToast -> Toast.makeText(
-                        requireContext(),
-                        getString(R.string.empty),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    FuelEfficiencyViewModel.FuelEfficiencyScreenEvent.ShowEmptyToast -> {
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.empty),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
 
             }
@@ -48,30 +45,26 @@ class FuelEfficiencyFragment : Fragment(R.layout.fragment_fuel_efficiency) {
              }
          }*/
 
-        binding.apply {
-
-            viewLifecycleOwner.lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    fuelEfficiencyViewModel.isFirstTime.collectLatest { isFirstTime ->
-                        if (isFirstTime) {
-                            totalLitersOfFuel.hint = getString(R.string.total_liters_of_fuel)
-                            meterReading.hint = getString(R.string.initial_reading)
-                            fuelPrice.hint = getString(R.string.furl_price_at_start)
-                            fuelBtnCal.text = getString(R.string.save)
-                        } else {
-                            totalLitersOfFuel.hint = getString(R.string.fuel_used)
-                            meterReading.hint = getString(R.string.final_reading)
-                            fuelPrice.hint = getString(R.string.fuel_price_at_refill)
-                            fuelBtnCal.text = getString(R.string.calculate_Button)
-                        }
-
+        binding!!.apply {
+            launchWhenStarted {
+                fuelEfficiencyViewModel.isFirstTime.collectLatest { isFirstTime ->
+                    if (isFirstTime) {
+                        totalLitersOfFuel.hint = getString(R.string.total_liters_of_fuel)
+                        meterReading.hint = getString(R.string.initial_reading)
+                        fuelPrice.hint = getString(R.string.furl_price_at_start)
+                        fuelBtnCal.text = getString(R.string.save)
+                    } else {
+                        totalLitersOfFuel.hint = getString(R.string.fuel_used)
+                        meterReading.hint = getString(R.string.final_reading)
+                        fuelPrice.hint = getString(R.string.fuel_price_at_refill)
+                        fuelBtnCal.text = getString(R.string.calculate_Button)
                     }
                 }
             }
 
             launchWhenStarted {
                 fuelEfficiencyViewModel.result.collectLatest { result ->
-                    binding.textViewFuelEfficiency.text = result
+                    binding!!.textViewFuelEfficiency.text = result
                 }
 
             }
@@ -142,6 +135,6 @@ class FuelEfficiencyFragment : Fragment(R.layout.fragment_fuel_efficiency) {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 }

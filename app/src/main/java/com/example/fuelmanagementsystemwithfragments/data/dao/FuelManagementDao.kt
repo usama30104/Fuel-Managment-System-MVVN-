@@ -9,8 +9,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface FuelManagementDao {
     @Upsert
-    suspend fun upsert(fuelexpensecalculation: FuelExpenseCalculation)
-
+    suspend fun upsert(fuelExpenseCalculation: FuelExpenseCalculation)
     @Query("SELECT * FROM FuelExpenseCalculation")
     fun getListOfFuelExpense(): Flow<List<FuelExpenseCalculation>>
 }

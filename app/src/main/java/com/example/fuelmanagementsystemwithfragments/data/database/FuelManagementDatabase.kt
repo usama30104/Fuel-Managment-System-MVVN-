@@ -12,7 +12,6 @@ import com.example.fuelmanagementsystemwithfragments.data.model.FuelExpenseCalcu
     version = 1
 )
 abstract class FuelManagementDatabase: RoomDatabase() {
-
         abstract fun getFuelEfficiencyDao(): FuelEfficiencyDao
         abstract fun getFuelManagementDao(): FuelManagementDao
 

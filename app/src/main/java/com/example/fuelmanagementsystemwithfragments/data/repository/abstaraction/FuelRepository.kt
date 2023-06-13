@@ -6,11 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface FuelRepository {
     suspend fun upsert(fuelEfficiencyCalculation: FuelEfficiencyCalculation)
-
     fun getListOfFuelEfficiency(): Flow<List<FuelEfficiencyCalculation>>
-
     suspend fun upsert(fuelExpenseCalculation: FuelExpenseCalculation)
-
     fun getListOfFuelExpense(): Flow<List<FuelExpenseCalculation>>
-
 }

@@ -19,6 +19,7 @@ class FuelEfficiencyViewModel @Inject constructor(
 ) : ViewModel() {
 
     val isFirstTime = MutableStateFlow(sharedPrefRepository.getIsFirstTime())
+
     private val fuelEfficiencyEventChannel = Channel<FuelEfficiencyScreenEvent>()
     val fuelEfficiencyEvent = fuelEfficiencyEventChannel.receiveAsFlow()
 
@@ -108,8 +109,9 @@ class FuelEfficiencyViewModel @Inject constructor(
             repository.upsert(fuelEfficiencyCalculation)
         }
     }
+    sealed class FuelEfficiencyScreenEvent {
+        object ShowEmptyToast : FuelEfficiencyScreenEvent()
+    }
+
 }
 
-sealed class FuelEfficiencyScreenEvent {
-    object ShowEmptyToast : FuelEfficiencyScreenEvent()
-}

@@ -22,7 +22,6 @@ object ViewModelModule {
     ): FuelRepository {
         return FuelRepositoryImpl(fuelEfficiencyDao, fuelManagementDao, sharedPreferences)
     }
-
     @Provides
     fun provideSharedPrefRepository(
         fuelEfficiencyDao: FuelEfficiencyDao,

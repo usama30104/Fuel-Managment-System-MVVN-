@@ -2,13 +2,14 @@ package com.example.fuelmanagementsystemwithfragments.ui.history.fuelExpenseHist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelmanagementsystemwithfragments.data.model.FuelExpenseCalculation
 import com.example.fuelmanagementsystemwithfragments.databinding.FuelExpenseItemBinding
 
 class FuelExpenseHistoryAdapter :
-    ListAdapter<FuelExpenseCalculation, FuelExpenseHistoryAdapter.ViewHolder>(DiffUtil()) {
+    ListAdapter<FuelExpenseCalculation, FuelExpenseHistoryAdapter.ViewHolder>(FuelExpenseCalculationDiffUtil()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,7 +27,7 @@ class FuelExpenseHistoryAdapter :
         holder.bind(fuelExpenseCalculation)
     }
 
-    class DiffUtil : androidx.recyclerview.widget.DiffUtil.ItemCallback<FuelExpenseCalculation>() {
+    class FuelExpenseCalculationDiffUtil : DiffUtil.ItemCallback<FuelExpenseCalculation>() {
         override fun areItemsTheSame(
             oldItem: FuelExpenseCalculation,
             newItem: FuelExpenseCalculation

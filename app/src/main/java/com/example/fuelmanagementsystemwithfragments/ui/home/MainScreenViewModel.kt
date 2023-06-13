@@ -51,8 +51,8 @@ class MainScreenViewModel : ViewModel() {
     fun onMainScreenItemClick(action: Int) = viewModelScope.launch {
         _mainScreenItemsClickEvent.send(MainScreenEvent.Navigate(action))
     }
-}
 
-sealed class MainScreenEvent {
-    class Navigate(val action: Int) : MainScreenEvent()
+    sealed class MainScreenEvent {
+        class Navigate(val action: Int) : MainScreenEvent()
+    }
 }

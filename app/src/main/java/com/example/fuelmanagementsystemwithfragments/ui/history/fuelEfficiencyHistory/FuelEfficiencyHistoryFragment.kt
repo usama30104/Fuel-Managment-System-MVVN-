@@ -5,25 +5,28 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.fuelmanagementsystemwithfragments.R
+import com.example.fuelmanagementsystemwithfragments.databinding.FragmentFuelEfficiencyHistoryBinding
 import com.example.fuelmanagementsystemwithfragments.databinding.FragmentFuelExpenseHistoryBinding
+import com.example.fuelmanagementsystemwithfragments.ui.baseclasses.BaseFragment
 import com.example.fuelmanagementsystemwithfragments.ui.history.fuelEfficiencyHistory.adapter.FueLEfficiencyHistoryAdapter
 import com.example.fuelmanagementsystemwithfragments.utils.extension.launchWhenStarted
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
-class FuelEfficiencyHistoryFragment : Fragment(R.layout.fragment_fuel_efficiency_history){
-    private var _binding: FragmentFuelExpenseHistoryBinding? = null
-    private val binding get() = _binding!!
+class FuelEfficiencyHistoryFragment : BaseFragment<FragmentFuelEfficiencyHistoryBinding>(){
+
 
     private val fuelEfficiencyHistoryViewModel by viewModels<FuelEfficiencyHistoryViewModel>()
     private val adapterEfficiency by lazy { FueLEfficiencyHistoryAdapter() }
+    override fun getFragmentView(): Int = R.layout.fragment_fuel_efficiency_history
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recycleView.adapter = adapterEfficiency
+
+        binding!!.recycleFuelEfficiency.adapter = adapterEfficiency
 
         launchWhenStarted {
             fuelEfficiencyHistoryViewModel.listEfficiencyHistory.collectLatest { list ->
@@ -44,6 +47,6 @@ class FuelEfficiencyHistoryFragment : Fragment(R.layout.fragment_fuel_efficiency
     }
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 }
